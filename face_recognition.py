@@ -1,14 +1,17 @@
 import dlib
 import cv2
 import numpy as np
+import glob
 
 face_detector = dlib.get_frontal_face_detector()
 
-test_img = cv2.imread("image/2.jpg")
-img = np.float32(test_img)
 
-for f in face_detector(test_img):
-    cv2.rectangle(test_img, (f.left(), f.top()), (f.right(), f.bottom()), (255, 0, 0), 2)
+for img in glob.glob("image/*.jpg"):
+    img = cv2.imread(img)
+    for f in face_detector(img):
+        
+        # img = np.float32(img)
+        cv2.rectangle(img, (f.left(), f.top()), (f.right(), f.bottom()), (255, 0, 0), 2)
 
-cv2.imshow("1", test_img)
-cv2.waitKey(0)
+    cv2.imshow("1", img)
+    cv2.waitKey(0) 
