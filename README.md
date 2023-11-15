@@ -1,2 +1,2 @@
-Object Detection
-1. Face Recognition
+# Object Detection
+- Face Recognition (Dlib, Retina-Face)
